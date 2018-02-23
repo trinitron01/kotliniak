@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Kotliniak.iml" filepath="$PROJECT_DIR$/Kotliniak.iml" />
+      <module fileurl="file://C:\Android\Projects\kotliniak\Kotliniak.iml" filepath="C:\Android\Projects\kotliniak\Kotliniak.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://C:\Android\Projects\kotliniak\app\app.iml" filepath="C:\Android\Projects\kotliniak\app\app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/kotliniak.iml" filepath="$PROJECT_DIR$/kotliniak.iml" />
     </modules>
   </component>
 </project>

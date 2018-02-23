@@ -19,6 +19,14 @@
         <category android:name="android.intent.category.LAUNCHER"/>
       </intent-filter>
     </activity>
+    <activity android:name=".github.GithubListActivity">
+    </activity>
+    <activity
+        android:name=".secure.SecureActivity"
+        android:label="@string/title_activity_secure"
+        android:theme="@style/AppTheme.NoActionBar">
+
+    </activity>
   </application>
 
 </manifest>
