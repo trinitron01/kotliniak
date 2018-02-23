@@ -8,78 +8,81 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
-  compileSdkVersion 25
-  buildToolsVersion '26.0.2'
-  defaultConfig {
-    applicationId "com.bfs.kotliniak"
-    minSdkVersion 18
-    targetSdkVersion 25
-    versionCode 1
-    versionName "1.0"
-    testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-  }
-  buildTypes {
-    release {
-      minifyEnabled false
-      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+    compileSdkVersion 25
+    buildToolsVersion '26.0.2'
+    defaultConfig {
+        applicationId "com.bfs.kotliniak"
+        minSdkVersion 18
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
-  }
-
-  flavorDimensions "default"
-
-
-  productFlavors {
-
-    /**
-     * finalProduction , that goes to Google Play Store
-     demoProduction, that is version with production server url with new features that are still not on Google Play Store. Our clients can have this version installed next to the one from Google Play so they can test it and give us feedback.
-     demoTesting, same as demoProduction with testing server url
-     mock, useful for me as a developer and for designers.
-     Sometimes we have the design ready and our API is still not ready.
-     Waiting for API to be ready to start development is not a solution. This build variant is provided with fake data, so design team can test it and
-     give us feedback. It is really helpful to not
-     procrastinate. Once when API is ready, we are moving
-     our development to demoTesting environment.*/
-
-    finalProduction {
-      dimension "default"
-      applicationId "com.bfs.kotliniak"
-      resValue "string", "app_name", "Kotliniak"
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
     }
 
-    demoProduction {
-      dimension "default"
-      applicationId "com.bfs.kotliniak.demoproduction"
-      resValue "string", "app_name", "Kotliniak Demo P"
+    flavorDimensions "default"
+
+
+    productFlavors {
+
+        /**
+         * finalProduction , that goes to Google Play Store
+         demoProduction, that is version with production server url with new features that are still not on Google Play Store. Our clients can have this version installed next to the one from Google Play so they can test it and give us feedback.
+         demoTesting, same as demoProduction with testing server url
+         mock, useful for me as a developer and for designers.
+         Sometimes we have the design ready and our API is still not ready.
+         Waiting for API to be ready to start development is not a solution. This build variant is provided with fake data, so design team can test it and
+         give us feedback. It is really helpful to not
+         procrastinate. Once when API is ready, we are moving
+         our development to demoTesting environment.*/
+
+        finalProduction {
+            dimension "default"
+            applicationId "com.bfs.kotliniak"
+            resValue "string", "app_name", "Kotliniak"
+        }
+
+        demoProduction {
+            dimension "default"
+            applicationId "com.bfs.kotliniak.demoproduction"
+            resValue "string", "app_name", "Kotliniak Demo P"
+        }
+
+        demoTesting {
+            dimension "default"
+            applicationId "com.bfs.kotliniak.demotesting"
+            resValue "string", "app_name", "Kotliniak Demo T"
+        }
+
+
+        mock {
+            dimension "default"
+            applicationId "com.bfs.kotliniak.mock"
+            resValue "string", "app_name", "Kotliniak Mock"
+        }
     }
 
-    demoTesting {
-      dimension "default"
-      applicationId "com.bfs.kotliniak.demotesting"
-      resValue "string", "app_name", "Kotliniak Demo T"
-    }
-
-
-    mock {
-      dimension "default"
-      applicationId "com.bfs.kotliniak.mock"
-      resValue "string", "app_name", "Kotliniak Mock"
-    }
-  }
-
-  dataBinding.enabled = true
+    dataBinding.enabled = true
 }
 
 dependencies {
-  implementation fileTree(dir: 'libs', include: ['*.jar'])
-  implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-  implementation 'com.android.support:appcompat-v7:25.3.1'
-  implementation 'com.android.support.constraint:constraint-layout:1.0.2'
-  implementation 'com.android.support:design:25.3.1'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    implementation 'com.android.support:appcompat-v7:25.3.1'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    implementation 'com.android.support:design:25.3.1'
 
-  kapt "com.android.databinding:compiler:3.0.0-beta6"
+    kapt "com.android.databinding:compiler:3.0.0-beta6"
 
-  testImplementation 'junit:junit:4.12'
-  /**androidTestImplementation 'com.android.support.test:runner:1.0.0'
-   androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.0'*/
+    testImplementation 'junit:junit:4.12'
+    /**androidTestImplementation 'com.android.support.test:runner:1.0.0'
+     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.0'*/
+
+    implementation 'com.google.dagger:dagger:2.13'
+    kapt 'com.google.dagger:dagger-compiler:2.13'
 }
