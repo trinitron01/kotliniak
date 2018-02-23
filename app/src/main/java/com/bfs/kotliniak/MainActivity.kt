@@ -1,6 +1,5 @@
 package com.bfs.kotliniak
 
-import android.content.Context
 import android.content.SharedPreferences
 import android.database.sqlite.SQLiteDatabase
 import android.os.Bundle
@@ -9,11 +8,11 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.RatingBar
 import android.widget.Toast
-import com.bfs.kotliniak.base.RangesCollections
 import com.bfs.kotliniak.base.VariablesBasicTypesArrays2
-import kotlinx.android.synthetic.main.activity_main.activity_toolbar
-import kotlinx.android.synthetic.main.activity_main.fab
-import kotlinx.android.synthetic.main.content_main.ratingBar2
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.content_main.*
+import java.io.File
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -32,17 +31,7 @@ class MainActivity : AppCompatActivity() {
     action()
   }
 
-  private fun action() {
 
-    RangesCollections.test()
-
-
-    val sharedPreferences = getSharedPreferences("test", Context.MODE_PRIVATE)
-    sharedPreferences.edit {
-      set("foo" to "bar")
-      remove("test")
-    }
-  }
 
   private fun toast(text: String) {
     Toast.makeText(this, text, Toast.LENGTH_SHORT).show()
@@ -88,7 +77,77 @@ class MainActivity : AppCompatActivity() {
 
   fun SharedPreferences.Editor.set(pair: Pair<String, String>) {
     putString(pair.first, pair.second)
+
+
   }
 
 
+  fun compress(files: List<File>, applyStrategy: (List<File>) -> CompressedFiles){
+    applyStrategy(files)
+  }
+
+  class CompressedFiles {
+
+  }
+
+  val dog = { action: Action ->
+    var weight: Int = 10
+
+    when (action) {
+      Action.feed -> { food: Int -> weight += food; println(weight) }
+      Action.workout -> { intensity: Int -> weight -= intensity; println(weight) }
+    }
+  }
+  enum class Action {
+    feed, workout
+  }
+
+
+  class Student(
+          val name: String,
+          val surname: String,
+          val passing: Boolean,
+          val averageGrade: Double
+  )
+
+  private fun action() {
+
+    /*   RangesCollections.test()
+
+
+       val sharedPreferences = getSharedPreferences("test", Context.MODE_PRIVATE)
+       sharedPreferences.edit {
+         set("foo" to "bar")
+         remove("test")
+       }*/
+    dog(Action.feed)(5)
+    val random = Random()
+    var students : MutableList<Student> = mutableListOf()
+    for (i: Int in 1..20) {
+
+      students.add(Student("name"+i,"surname"+i,true, i.toDouble()))
+    }
+    val predicate: (Student) -> Boolean = { it.passing && it.averageGrade > 4.0 }
+    val selector: (IndexedValue<Student>) -> Double = { (i, s) -> s.averageGrade }
+    val selector1: (IndexedValue<Student>) -> Int = { (i, s) -> i }
+    val transform: (IndexedValue<Student>) -> Student = { (i, s) -> s }
+    val filtered =
+           students.filter(predicate)
+                   .withIndex() // 1
+                   .sortedBy(selector) // 2
+                   .take(10)
+                   .sortedBy(selector1) // 3
+                   .map(transform) // 4
+
+/*
+
+    We add current index to every element.
+            We need to destructure value and index before use.
+            We sort by index.
+    We remove index and keep only students.
+
+*/
+
+    val size = filtered.size
+  }
 }
