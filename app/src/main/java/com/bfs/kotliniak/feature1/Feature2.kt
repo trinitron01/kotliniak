@@ -11,4 +11,9 @@ class Feature2 {
     fun masterChangeFun() {
         val masterChange  = 1
     }
+
+
+    fun newfunFromFeature3() {
+
+    }
 }
