@@ -15,6 +15,9 @@ class Feature2 {
 
 
     fun newfunFromFeature3() {
+            val masterUpdate = 3
+            val masterUpdate2 = 3
+            val masterUpdate3 = 3
             val updated = 1
     }
 
