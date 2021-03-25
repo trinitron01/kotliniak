@@ -10,10 +10,5 @@ class Feature1 {
 
 
 
-    fun test2() {
-
-        val other = 3
-
-    }
 
 }
