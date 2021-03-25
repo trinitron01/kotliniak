@@ -8,5 +8,7 @@ class Feature4 {
         val chage1 = 2
     }
 
+    val a = 3
 
+    val bAfterMerge = 8
 }
