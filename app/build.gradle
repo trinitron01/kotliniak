@@ -1,88 +1,58 @@
-apply plugin: 'com.android.application'
-
-apply plugin: 'kotlin-android'
-
-apply plugin: 'kotlin-android-extensions'
-
-// at the top of file
-apply plugin: 'kotlin-kapt'
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+}
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion '26.0.2'
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
+
     defaultConfig {
-        applicationId "com.bfs.kotliniak"
-        minSdkVersion 18
-        targetSdkVersion 25
+        applicationId "com.example.rxplayground"
+        minSdkVersion 22
+        targetSdkVersion 30
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+
     buildTypes {
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-
-    flavorDimensions "default"
-
-
-    productFlavors {
-
-        /**
-         * finalProduction , that goes to Google Play Store
-         demoProduction, that is version with production server url with new features that are still not on Google Play Store. Our clients can have this version installed next to the one from Google Play so they can test it and give us feedback.
-         demoTesting, same as demoProduction with testing server url
-         mock, useful for me as a developer and for designers.
-         Sometimes we have the design ready and our API is still not ready.
-         Waiting for API to be ready to start development is not a solution. This build variant is provided with fake data, so design team can test it and
-         give us feedback. It is really helpful to not
-         procrastinate. Once when API is ready, we are moving
-         our development to demoTesting environment.*/
-
-        finalProduction {
-            dimension "default"
-            applicationId "com.bfs.kotliniak"
-            resValue "string", "app_name", "Kotliniak"
-        }
-
-        demoProduction {
-            dimension "default"
-            applicationId "com.bfs.kotliniak.demoproduction"
-            resValue "string", "app_name", "Kotliniak Demo P"
-        }
-
-        demoTesting {
-            dimension "default"
-            applicationId "com.bfs.kotliniak.demotesting"
-            resValue "string", "app_name", "Kotliniak Demo T"
-        }
-
-
-        mock {
-            dimension "default"
-            applicationId "com.bfs.kotliniak.mock"
-            resValue "string", "app_name", "Kotliniak Mock"
-        }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
-
-    dataBinding.enabled = true
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-    implementation 'com.android.support:appcompat-v7:25.3.1'
-    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
-    implementation 'com.android.support:design:25.3.1'
 
-    kapt "com.android.databinding:compiler:3.0.0-beta6"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.core:core-ktx:1.3.2'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'com.google.android.material:material:1.3.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
-    testImplementation 'junit:junit:4.12'
-    /**androidTestImplementation 'com.android.support.test:runner:1.0.0'
-     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.0'*/
 
-    implementation 'com.google.dagger:dagger:2.13'
-    kapt 'com.google.dagger:dagger-compiler:2.13'
+
+    implementation 'io.reactivex.rxjava2:rxkotlin:2.2.0'
+    implementation "io.reactivex.rxjava2:rxandroid:2.0.2"
+
+    implementation 'io.reactivex.rxjava2:rxjava:2.0.6'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
+    implementation 'com.squareup.retrofit2:converter-jackson:2.0.1'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.8.0'
+    implementation 'ch.qos.logback:logback-classic:1.1.7'
+    implementation 'org.slf4j:slf4j-api:1.7.21'
+    implementation 'org.slf4j:jul-to-slf4j:1.7.21'
 }
