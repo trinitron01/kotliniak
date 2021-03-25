@@ -7,6 +7,7 @@ class Feature2 {
     }
 
 
+    val testFeature3Cont = 3
 
     fun masterChangeFun() {
         val masterChange  = 1
@@ -15,5 +16,10 @@ class Feature2 {
 
     fun newfunFromFeature3() {
             val updated = 1
+    }
+
+
+    fun newfunFromFeature4() {
+        val updated = 1
     }
 }
