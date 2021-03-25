@@ -14,6 +14,6 @@ class Feature2 {
 
 
     fun newfunFromFeature3() {
-
+            val updated = 1
     }
 }
