@@ -5,10 +5,15 @@ class Feature1 {
     fun test() {
 
         val other = 3
-        val chage1 = 2
+
     }
 
-    val a = 3
 
-    val bAfterMerge = 8
+
+    fun test2() {
+
+        val other = 3
+
+    }
+
 }
