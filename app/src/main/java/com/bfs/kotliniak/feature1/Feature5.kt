@@ -7,4 +7,11 @@ class Feature5 {
         val other = 3
         val chage1 = 2
     }
+
+    fun testother() {
+
+
+    }
+
+    val ctest = 3
 }
