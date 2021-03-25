@@ -5,4 +5,9 @@ class Feature2 {
     fun test() {
 
     }
+
+
+    fun newfunFromFeature3() {
+
+    }
 }
