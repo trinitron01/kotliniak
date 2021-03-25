@@ -4,5 +4,9 @@ class Feature1 {
 
     fun test() {
 
+
+        val other = 3
     }
+
+    val a = 3
 }
