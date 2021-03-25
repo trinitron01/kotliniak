@@ -10,7 +10,4 @@ class Feature3 {
 
     }
 
-    fun test3113231223333() {
-
-    }
 }
