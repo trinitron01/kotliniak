@@ -1,6 +1,6 @@
 package com.bfs.kotliniak.feature1
 
-class MasterChange2 {
+class MasterChange6 {
 
     fun test() {
 
