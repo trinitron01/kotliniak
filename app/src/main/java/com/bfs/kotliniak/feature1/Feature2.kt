@@ -1,6 +1,6 @@
 package com.bfs.kotliniak.feature1
 
-class Feature3 {
+class Feature2 {
 
 
 
