@@ -8,4 +8,11 @@ class MasterChange1 {
         val chage1 = 2
     }
 
+
+    fun tes2t() {
+
+        val other = 3
+        val chage1 = 2
+    }
+
 }
