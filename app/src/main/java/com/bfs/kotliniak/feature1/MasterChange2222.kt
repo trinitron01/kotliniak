@@ -16,4 +16,11 @@ class MasterChange2222 {
 
 
 
+    fun te22st() {
+
+        val other = 3
+        val chage1 = 2
+    }
+
+
 }
