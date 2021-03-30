@@ -12,6 +12,12 @@ class MasterChangeRenamed {
         val chage1 = 2
     }
 
+    fun te2st() {
+
+        val other = 3
+        val chage1 = 2
+    }
+
 
 
 }
