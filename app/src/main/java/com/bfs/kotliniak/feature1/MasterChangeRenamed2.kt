@@ -7,6 +7,9 @@ class MasterChangeRenamed2 {
         val master = true
         val masterB = false
         val masterB2 = false
+
+        val feature3 = true
+        val feature3b = false
     }
 
 
