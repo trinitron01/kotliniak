@@ -13,4 +13,9 @@ class MasterChange {
     fun add() {
         val v1 = true
     }
+
+
+    fun add2() {
+        val v2 = true
+    }
 }
