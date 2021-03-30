@@ -1,6 +1,6 @@
 package com.bfs.kotliniak.feature1
 
-class MasterChangeRenamed {
+class MasterChangeRenamedAgain {
 
     fun masterChange1() {
     }
