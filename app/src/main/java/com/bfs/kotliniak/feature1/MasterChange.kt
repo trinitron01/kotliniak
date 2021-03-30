@@ -9,4 +9,8 @@ class MasterChange {
         val master4  = true
         val master5  = true
     }
+
+    fun add() {
+        val v1 = true
+    }
 }
